@@ -3,8 +3,6 @@ namespace App\Models;
 
 use Illuminate\Support\Arr;
 
-use function PHPUnit\Framework\isNull;
-
 class Job {
     public static function all (): array {
         return [
