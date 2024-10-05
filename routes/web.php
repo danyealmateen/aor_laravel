@@ -1,22 +1,28 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Job;
+use App\Models\KidsGrading;
+use App\Http\Controllers\StudentController;
 
+//Default
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/jobs', function () {
-    return view('jobs', ['jobs' => Job::all()]);
+//Tävling
+Route::get('/comp', function () {
+    return view('comp');
 });
 
-Route::get('/contact', function() {
-    return view('contact');
+//Gradering
+Route::get('/grading', function() {
+    $kids = KidsGrading::all();
+    return view('grading', ['kids' => $kids]);
 });
 
-Route::get('/jobs/{id}', function($id)  {
-    $job = Job::find($id);
-    
-    return view('job', ['job' => $job ]);
-});
+//Uppdatera bälte
+Route::post('/update-belt/{id}', [StudentController::class, 'updateBelt'])->name('updateBelt');
+
+
+
+

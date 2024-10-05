@@ -19,3 +19,14 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+
+# Laravel-specific ignores
+/storage/logs
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/views
+/bootstrap/cache
+
+# Other IDE and system files
+/.DS_Store
+Thumbs.db
