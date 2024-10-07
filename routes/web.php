@@ -15,14 +15,25 @@ Route::get('/comp', function () {
 });
 
 //Gradering
-Route::get('/grading', function() {
-    $kids = KidsGrading::all();
-    return view('grading', ['kids' => $kids]);
+Route::get('/gradings', function () {
+    return view('gradings');
 });
 
-//Uppdatera bälte
+//Uppdatera gradering (barn?)
 Route::post('/update-belt/{id}', [StudentController::class, 'updateBelt'])->name('updateBelt');
 
+//Knatte gradering
+Route::get('/peewees-gradings', function () {
+    return view('peewees');
+});
 
+//Vuxna gradering
+Route::get('/adults-gradings', function () {
+    return view('adults');
+});
 
-
+//Barn gradering
+Route::get('/kids-gradings', function () {
+    $kids = KidsGrading::all();
+    return view('kids', ['kids' => $kids]);
+});
