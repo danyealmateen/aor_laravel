@@ -18,7 +18,11 @@ class StudentController extends Controller
         $student->grade = $request->input('belt_grade');
         $student->save();
 
-        return back()->with('success', 'Bälte uppdaterat för ' . $student->name);
+        return response()->json([
+            'success' => true,
+            'message' => 'Gradera ' . $student->name . ' ' . 'till ' . $student->grade . ' ? ',
+            'new_grade' => $student->grade,
+        ]);
     }
 }
 
