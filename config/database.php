@@ -44,11 +44,11 @@ return [
 
 'mysql' => [
     'driver' => 'mysql',
-    'host' => 'localhost',
+    'host' => '82.163.176.113',
     'port' => '3306',
     'database' => 'aor_aor',
     'username' => 'aor_nkdsnk',
-    'password' => 'berimBOLO2128!',
+    'password' => 'Sogandlol1!',
     'unix_socket' => env('DB_SOCKET', ''),
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',

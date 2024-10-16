@@ -34,6 +34,6 @@ Route::get('/adults-gradings', function () {
 
 //Barn gradering
 Route::get('/kids-gradings', function () {
-    $kids = KidsGrading::all();
+    $kids = KidsGrading::orderBy('name')->get();
     return view('kids', ['kids' => $kids]);
 });
