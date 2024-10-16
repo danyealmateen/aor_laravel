@@ -14,14 +14,15 @@ class StudentController extends Controller
         ]);
 
         $student = KidsGrading::findOrFail($id);
-
         $student->grade = $request->input('belt_grade');
+        $student->updated_at = now();
         $student->save();
 
         return response()->json([
             'success' => true,
             'message' => 'Gradera ' . $student->name . ' ' . 'till ' . $student->grade . ' ? ',
             'new_grade' => $student->grade,
+            'updated_at' => $student->updated_at->format('Y-m-d H:i:s'),
         ]);
     }
 }

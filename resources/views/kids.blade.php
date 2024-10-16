@@ -19,7 +19,7 @@
                         <p class="text-sm font-semibold leading-6 text-gray-900">{{ $kid['name'] }}</p>
                         <p class="mt-1 truncate text-xs leading-5 text-gray-500 current-grade-{{ $kid['id'] }}">
                             {{ $kid['grade'] }}</p>
-                        <p class="mt-1 text-xs leading-5 text-gray-500">Uppdaterad: {{ $kid['updated_at'] }}</p>
+                        <p class="mt-1 text-xs leading-5 text-gray-500 updated-time-{{ $kid['id'] }}">Uppdaterad: {{ $kid['updated_at'] }}</p>
                     </div>
                 </div>
                 <form method="post" action="{{ route('updateBelt', ['id' => $kid['id']]) }}" class="w-full sm:w-auto">

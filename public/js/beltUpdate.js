@@ -1,27 +1,31 @@
-$(document).ready(function() {
-
-    window.updateBelt = function(id) {
-        let belt_grade = $('#beltGradeForm-' + id).val(); 
+$(document).ready(function () {
+    window.updateBelt = function (id) {
+        let belt_grade = $("#beltGradeForm-" + id).val();
 
         $.ajax({
-            url: "/update-belt/" + id,  // Dynamisk URL med barnets ID
-            type: 'POST',  // Skicka POST-begäran
+            url: "/update-belt/" + id, 
+            type: "POST",
             data: {
-                _token: $('meta[name="csrf-token"]').attr('content'),  // Laravel CSRF-skydd
-                belt_grade: belt_grade  // Skicka valt bälte
+                _token: $('meta[name="csrf-token"]').attr("content"), 
+                belt_grade: belt_grade, 
             },
-            success: function(response) {
-                // Försök att uppdatera bältesgraden direkt
-                let gradeElement = $('.current-grade-' + id);
-                // Kontrollera om elementet finns
+            success: function (response) {
+           
+                let gradeElement = $(".current-grade-" + id);
+        
                 if (gradeElement.length) {
-                    gradeElement.text(response.new_grade);  // Uppdatera DOM med nya bältesgraden
-                } 
+                    gradeElement.text(response.new_grade); 
+                }
+                let updatedAtElement = $(".updated-time-" + id);
+
+                if (updatedAtElement.length) {
+                    updatedAtElement.text("Uppdaterad: " + response.updated_at);
+                }
                 alert(response.message);
             },
-            error: function(xhr) {
-                alert('Ett fel inträffade. Försök igen.');
-            }
+            error: function () {
+                alert("Ett fel inträffade. Försök igen.");
+            },
         });
     };
 });
