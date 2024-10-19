@@ -5,6 +5,15 @@ use App\Http\Controllers\StudentController;
 
 
 Route::get('/', function () {
+    return view('login');
+})->name('login');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/home',function() {
+        return view ('home');
+    });
+
+Route::get('/home', function () {
     return view('home');
 });
 
@@ -29,4 +38,6 @@ Route::get('/adults-gradings', function () {
 Route::get('/kids-gradings', function () {
     $kids = KidsGrading::orderBy('name')->get();
     return view('kids', ['kids' => $kids]);
+});
+
 });

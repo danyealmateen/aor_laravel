@@ -20,7 +20,7 @@
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
-                                <x-nav-link href="/" :active="request()->is('/')">Hem</x-nav-link>
+                                <x-nav-link href="/home" :active="request()->is('/home')">Hem</x-nav-link>
                                 <x-nav-link href="/comp" :active="request()->is('comp')">Tävlingar</x-nav-link>
                                 <x-nav-link href="/gradings" :active="request()->is('gradings')">Graderingar</x-nav-link>
                             </div>
@@ -32,7 +32,7 @@
             <!-- Mobile menu -->
             <div class="md:hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                    <x-nav-link href="/" :active="request()->is('/')">Hem</x-nav-link>
+                    <x-nav-link href="/home" :active="request()->is('/home')">Hem</x-nav-link>
                     <x-nav-link href="/comp" :active="request()->is('comp')">Tävlingar</x-nav-link>
                     <x-nav-link href="/gradings" :active="request()->is('gradings')">Graderingar</x-nav-link>
                 </div>
